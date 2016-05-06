@@ -206,11 +206,11 @@ function wpcf7_radio_custom_shortcode_handler( $tag ) {
 		}
 
 		if ( $use_label_element && $extra_span_element ) {
-			$item = '<label><span class="contact-pseudo"></span>' . $item . '</label>'; 
+			$item = '<label>' . $item . '<span class="contact-pseudo"></span></label>'; 
 		} elseif ( $use_label_element ) {
 			$item = '<label>' . $item . '</label>';
 		} elseif ( $extra_span_element ) {
-			$item = '<span class="contact-pseudo"></span>' . $item;
+			$item = $item . '<span class="contact-pseudo"></span>';
 		}
 
 		if ( false !== $tabindex )
