@@ -199,18 +199,17 @@ function wpcf7_radio_custom_shortcode_handler( $tag ) {
 			$item = sprintf(
 				'<span class="wpcf7-list-item-label">%1$s</span>&nbsp;<input %2$s />',
 				esc_html( $label ), $item_atts );
+		} else if ( $extra_span_element ) {
+			$item = sprintf(
+				'<input %2$s />&nbsp<span class="contact-pseudo"></span><span class="wpcf7-list-item-label">%1$s</span>', esc_html( $label ), $item_atts);
 		} else {
 			$item = sprintf(
 				'<input %2$s />&nbsp;<span class="wpcf7-list-item-label">%1$s</span>',
 				esc_html( $label ), $item_atts );
 		}
 
-		if ( $use_label_element && $extra_span_element ) {
-			$item = '<label>' . $item . '<span class="contact-pseudo"></span></label>'; 
-		} elseif ( $use_label_element ) {
+		if ( $use_label_element ) {
 			$item = '<label>' . $item . '</label>';
-		} elseif ( $extra_span_element ) {
-			$item = $item . '<span class="contact-pseudo"></span>';
 		}
 
 		if ( false !== $tabindex )
